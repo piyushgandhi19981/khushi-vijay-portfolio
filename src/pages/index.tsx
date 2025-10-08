@@ -4,7 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import profileImage from "../../public/profile.jpeg";
+import profileImage from "../assets/profile.jpeg";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -14,6 +14,7 @@ if (typeof window !== "undefined") {
 export default function Home() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorTextRef = useRef<HTMLSpanElement>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   useEffect(() => {
     // Custom cursor effect
@@ -302,7 +303,7 @@ export default function Home() {
           content="Results-oriented Chartered Accountant with experience in business consulting, financial transformation, and risk management."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/profile.jpeg" />
+        <link rel="icon" href="/profile.png" />
       </Head>
 
       {/* Custom Cursor */}
@@ -321,7 +322,10 @@ export default function Home() {
         >
           <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
             <div className="relative">
-              <div id="header-initial-left" className="flex gap-x-6 text-black">
+              <div
+                id="header-initial-left"
+                className="hidden md:flex gap-x-6 text-black"
+              >
                 <a
                   href="#work"
                   data-cursor-view
@@ -382,7 +386,7 @@ export default function Home() {
               </p>
               <div
                 id="header-scrolled-right"
-                className="absolute top-1/2 -translate-y-1/2 md:top-0 md:translate-y-0 right-0 flex gap-x-6 text-brand-light opacity-0 pointer-events-none"
+                className="absolute top-1/2 -translate-y-1/2 md:top-0 md:translate-y-0 right-0 hidden md:flex gap-x-6 text-brand-light opacity-0 pointer-events-none"
               >
                 <a
                   href="#work"
@@ -427,9 +431,84 @@ export default function Home() {
                   Contact
                 </a>
               </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden flex flex-col gap-1 p-2 text-black"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                <span
+                  className={`w-6 h-0.5 bg-current transition-all duration-300 ${
+                    isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`w-6 h-0.5 bg-current transition-all duration-300 ${
+                    isMobileMenuOpen ? "opacity-0" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`w-6 h-0.5 bg-current transition-all duration-300 ${
+                    isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+                  }`}
+                ></span>
+              </button>
             </div>
           </div>
         </header>
+
+        {/* Mobile Menu Panel */}
+        <div
+          className={`fixed top-0 left-0 w-full h-full bg-black/95 backdrop-blur-md z-[99] transition-all duration-300 md:hidden ${
+            isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
+          <div className="flex flex-col items-center justify-center h-full space-y-8 text-white">
+            <a
+              href="#work"
+              className="text-2xl font-medium hover:text-brand-green transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Work
+            </a>
+            <a
+              href="#about"
+              className="text-2xl font-medium hover:text-brand-green transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About
+            </a>
+            <a
+              href="#services"
+              className="text-2xl font-medium hover:text-brand-green transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Skills
+            </a>
+            <a
+              href="#education"
+              className="text-2xl font-medium hover:text-brand-green transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Education
+            </a>
+            <a
+              href="#certificates"
+              className="text-2xl font-medium hover:text-brand-green transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Certificates
+            </a>
+            <a
+              href="#contact"
+              className="text-2xl font-medium hover:text-brand-green transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </div>
+        </div>
 
         {/* Home Section */}
         <section
@@ -897,7 +976,7 @@ export default function Home() {
                     Advanced certification in Analytics and Data visualization.
                   </p>
                   <a
-                    href="https://drive.google.com/uc?export=download&id=1XLSAIT97xyxtv37W3eI3LVwpEyCqMLmt"
+                    href="https://drive.google.com/file/d/1XLSAIT97xyxtv37W3eI3LVwpEyCqMLmt/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-green text-sm hover:text-white transition-colors"
@@ -914,7 +993,7 @@ export default function Home() {
                     data management.
                   </p>
                   <a
-                    href="https://drive.google.com/uc?export=download&id=1C3DqILOnw1uhBDPs2gJD2ko9eFnLEj3d"
+                    href="https://drive.google.com/file/d/1C3DqILOnw1uhBDPs2gJD2ko9eFnLEj3d/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-green text-sm hover:text-white transition-colors"
@@ -930,7 +1009,7 @@ export default function Home() {
                     Advanced certification in AI technologies and Generative AI.
                   </p>
                   <a
-                    href="https://drive.google.com/uc?export=download&id=12wYGfxmaNLrNZWM5mRNRKvd-7jU_tTH9"
+                    href="https://drive.google.com/file/d/12wYGfxmaNLrNZWM5mRNRKvd-7jU_tTH9/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-green text-sm hover:text-white transition-colors"
@@ -946,7 +1025,7 @@ export default function Home() {
                     Certification in effective dashboards and data visualization
                   </p>
                   <a
-                    href="https://drive.google.com/uc?export=download&id=1A_Ucs1xsZNQkO_HDNWf0IB5dtp4K7qYi"
+                    href="https://drive.google.com/file/d/1A_Ucs1xsZNQkO_HDNWf0IB5dtp4K7qYi/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-green text-sm hover:text-white transition-colors"
@@ -963,7 +1042,7 @@ export default function Home() {
                     analysis techniques.
                   </p>
                   <a
-                    href="https://drive.google.com/uc?export=download&id=1tlS1kFFSe2nQ6blLUgMahW37ARYluzeI"
+                    href="https://drive.google.com/file/d/1tlS1kFFSe2nQ6blLUgMahW37ARYluzeI/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-green text-sm hover:text-white transition-colors"
@@ -1020,7 +1099,7 @@ export default function Home() {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="h-8 w-8"
+                        className="h-10 w-10"
                         aria-hidden="true"
                       >
                         <path d={social.icon} />

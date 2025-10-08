@@ -57,8 +57,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   background-color: #39ff14;
   border-radius: 50%;
   z-index: 9999;
