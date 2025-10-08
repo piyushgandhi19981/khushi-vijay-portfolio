@@ -399,11 +399,25 @@ export default function Home() {
                   About
                 </a>
                 <a
-                  href="#network"
+                  href="#services"
                   data-cursor-view
-                  className="hover:text-gray-500 transition-colors"
+                  className="hover:text-gray-400 transition-colors"
                 >
-                  Network
+                  Skills
+                </a>
+                <a
+                  href="#education"
+                  data-cursor-view
+                  className="hover:text-gray-400 transition-colors"
+                >
+                  Education
+                </a>
+                <a
+                  href="#certificates"
+                  data-cursor-view
+                  className="hover:text-gray-400 transition-colors"
+                >
+                  Certificates
                 </a>
                 <a
                   href="#contact"
