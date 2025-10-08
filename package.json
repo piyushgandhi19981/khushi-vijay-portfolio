@@ -1,0 +1,42 @@
+{
+  "name": "@d11/khushi-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "check-all": "node scripts/check-errors.js"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "vite",
+    "portfolio"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Khushi Portfolio - Next.js project with Vite support",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "next": "^15.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^24.7.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.37.0",
+    "eslint-config-next": "^15.5.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.9.3"
+  }
+}
