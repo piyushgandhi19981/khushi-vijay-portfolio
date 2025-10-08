@@ -4,7 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import profileImage from "../assets/profile.jpeg";
+import profileImage from "../../public/profile.jpeg";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -302,7 +302,7 @@ export default function Home() {
           content="Results-oriented Chartered Accountant with experience in business consulting, financial transformation, and risk management."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/profile.jpeg" />
       </Head>
 
       {/* Custom Cursor */}
